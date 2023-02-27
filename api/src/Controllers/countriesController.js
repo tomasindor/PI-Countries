@@ -1,4 +1,4 @@
-const { Country } = require("../db.js");
+const { Country, Activity } = require("../db.js");
 const { Op } = require("sequelize");
 
 const getcountries = async () => {
@@ -10,7 +10,8 @@ const searchName = async (name) => {
   const country = await Country.findAll({
     where: { name: { [Op.iLike]: `%${name}%` } },
   });
-  if ((country = [])) {
+  console.log(country);
+  if (!country) {
     throw Error;
   } else {
     return country;
@@ -18,9 +19,15 @@ const searchName = async (name) => {
 };
 
 const getById = async (id) => {
-  const country = await Country.findByPk(id);
-  console.log(country);
-  if (country === null) {
+  const country = await Country.findByPk(id, {
+    include: {
+      model: Activity,
+      through: {
+        attributes: [],
+      },
+    },
+  });
+  if (!country) {
     throw Error;
   } else {
     return country;

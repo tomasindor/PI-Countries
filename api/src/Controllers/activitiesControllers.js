@@ -1,19 +1,34 @@
-const { Activity } = require("../db");
+const { Activity, Country } = require("../db");
+const { searchName } = require("./countriesController");
 
 const getActivities = async () => {
-  const db = Activity.findAll();
+  const db = await Activity.findAll();
   return db;
 };
 
-const createActivity = async (name, Dificulty, Duration, season, countryId) => {
+const createActivity = async (
+  name,
+  difficulty,
+  duration,
+  season,
+  countries
+) => {
   const newActivity = await Activity.create({
     name,
-    Dificulty,
-    Duration,
+    difficulty,
+    duration,
     season,
   });
-  await newActivity.setCountry(countryId);
+  newActivity.addCountries(countries);
   return newActivity;
 };
+
+/*/const findCountries = async (arr) => {
+  console.log(arr);
+  await arr.map((elem) => {
+    console.log(elem);
+    return Country.searchName(elem);
+  });
+};*/
 
 module.exports = { getActivities, createActivity };

@@ -1,12 +1,15 @@
 const { Router } = require("express");
-const { getActivitiesHandler } = require("../Handlers/activitiesHandler");
+const {
+  getActivitiesHandler,
+  createActivityHandler,
+} = require("../Handlers/activitiesHandler");
 
 //const router = require(".");
 
 const activitiesRouter = Router();
 
 activitiesRouter.get("/", getActivitiesHandler);
-activitiesRouter.post("/");
+activitiesRouter.post("/", createActivityHandler);
 //console.log(searchCountriesHandler);
 
 module.exports = activitiesRouter;

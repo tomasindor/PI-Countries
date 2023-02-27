@@ -1,22 +1,26 @@
-const { getActivities } = require("../Controllers/activitiesControllers");
+const {
+  getActivities,
+  createActivity,
+} = require("../Controllers/activitiesControllers");
 
 const getActivitiesHandler = async (req, res) => {
   try {
-    const activities = getActivities();
+    const activities = await getActivities();
     res.status(200).json(activities);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
 };
 const createActivityHandler = async (req, res) => {
-  const { name, Dificulty, Duration, season, countryId } = req.body;
+  const { name, difficulty, duration, season, countries } = req.body;
+
   try {
     const newPost = await createActivity(
       name,
-      Dificulty,
-      Duration,
+      difficulty,
+      duration,
       season,
-      countryId
+      countries
     );
     res.status(201).json(newPost);
   } catch (error) {
@@ -24,4 +28,4 @@ const createActivityHandler = async (req, res) => {
   }
 };
 
-module.exports = { getActivitiesHandler };
+module.exports = { getActivitiesHandler, createActivityHandler };

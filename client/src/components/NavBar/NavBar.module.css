@@ -1,0 +1,7 @@
+.maincontainer {
+  display: flex;
+  justify-content: space-around;
+  font-size: 22px;
+  border-radius: 10;
+  border: 2px solid black;
+}
