@@ -1,7 +1,41 @@
-.maincontainer {
+.mainContainer {
   display: flex;
   justify-content: space-around;
-  font-size: 22px;
-  border-radius: 10;
-  border: 2px solid black;
+  align-items: center;
+  height: 4rem;
+  padding: 0 2rem;
+
+  border-radius: 0px;
+
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+}
+
+.item {
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  padding: 1rem 2rem;
+  cursor: pointer;
+
+  transition: background-color 0.3s ease;
+  background: #f200ff2c;
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(62, 62, 47, 0.1);
+  backdrop-filter: blur(6px);
+}
+
+.item:hover {
+  background-color: #ef0bef;
+}
+.blurredWrapper {
+  position: absolute;
+  filter: blur(1rem);
+
+  transform: scale(var(--blur), 0.001);
+}
+
+.blurred {
+  transform: scale(calc(1 / var(--blur)), 1000);
 }

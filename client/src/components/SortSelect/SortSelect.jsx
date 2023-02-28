@@ -1,12 +1,20 @@
+import style from "./SortSelect.module.css";
 const SortSelect = ({ Sort, selectedSort, setSelectedSort }) => {
   const handleChange = (event) => {
     setSelectedSort(event.target.value);
   };
 
   return (
-    <div>
-      <label htmlFor="Sort-select">Select a Sort:</label>
-      <select id="Sort-select" value={selectedSort} onChange={handleChange}>
+    <div className={style.container}>
+      <label htmlFor="Sort-select" className={style.label}>
+        Sort by:
+      </label>
+      <select
+        id="Sort-select"
+        value={selectedSort}
+        onChange={handleChange}
+        className={style.select}
+      >
         {Sort.map((Sort) => (
           <option key={Sort} value={Sort}>
             {Sort}

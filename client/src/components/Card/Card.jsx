@@ -4,9 +4,9 @@ const Card = (props) => {
   return (
     <Link to={`/detail/${props.id}`}>
       <div className={style.card}>
-        <img src={props.flag} alt=" "></img>
-        <p>Name: {props.name}</p>
-        <p>Continent: {props.continent}</p>
+        <img src={props.flag} alt=" " className={style.img}></img>
+        <p className={style.attributes}>Name: {props.name}</p>
+        <p className={style.attributes}>Continent: {props.continent}</p>
       </div>
     </Link>
   );

@@ -5,7 +5,9 @@ import {
   Route,
   Switch,
 } from "react-router-dom";
-
+import { useDispatch, useSelector } from "react-redux";
+import { getCountries } from "./redux/actions";
+import { useEffect } from "react";
 function App() {
   const location = useLocation();
 
@@ -13,20 +15,19 @@ function App() {
     <Router>
       <div className="App">
         {location.pathname !== "/" && <NavBar />}
-        <Switch>
-          <Route exact path="/">
-            <Landing />
-          </Route>
-          <Route exact path="/detail/:id">
-            <Detail />
-          </Route>
-          <Route exact path="/create">
-            <Form />
-          </Route>
-          <Route exact path="/home">
-            <Home />
-          </Route>
-        </Switch>
+
+        <Route exact path="/">
+          <Landing />
+        </Route>
+        <Route exact path="/detail/:id">
+          <Detail />
+        </Route>
+        <Route exact path="/create">
+          <Form />
+        </Route>
+        <Route exact path="/home">
+          <Home />
+        </Route>
       </div>
     </Router>
   );

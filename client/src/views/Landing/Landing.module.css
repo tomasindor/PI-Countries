@@ -1,8 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
 .container {
-  background-image: url("./wp4009177.jpg"); /* The image used */
-  background-color: #cccccc; /* Used if the image is unavailable */
-  height: 500px; /* You must set a specified height */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover; /* Resize the background image to cover the entire container */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  height: 100vh;
+  font-family: "Mont-Heavy";
+  background-image: url("./photo-1521295121783-8a321d551ad2.jfif");
+  background-size: cover;
+  background-position: center center;
+}
+
+/* From https://css.glass */
+
+/* Estilos del título */
+.title {
+  text-align: left;
+  font-size: 4rem;
+  font-weight: bold;
+  color: #ffff00;
+  justify-content: center;
+  margin-bottom: 5rem;
+}
+
+/* Estilos del subtítulo */
+.subtitle {
+  font-size: 1.5rem;
+  color: #ffff00;
+  text-align: left;
+  margin-bottom: 5rem;
+}
+
+/* Estilos del botón */
+.button {
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff000;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background: rgba(255, 250, 250, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(251, 255, 0, 0.1);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 250, 250, 0.3);
+}
+
+.button:hover {
+  background-color: #7d6c0dc5;
 }

@@ -9,9 +9,11 @@ const SearchBar = () => {
   const handleinputChange = (event) => {
     setInputValue(event.target.value);
   };
+
   const handleButtonClick = () => {
     dispatch(searchCountries(inputValue));
   };
+
   return (
     <div className={style.wrap}>
       <div className={style.search}>
@@ -27,7 +29,7 @@ const SearchBar = () => {
           className={style.searchButton}
           onClick={handleButtonClick}
         >
-          <i class="fa fa-search"></i>
+          <i className="fa fa-search"></i>
         </button>
       </div>
     </div>

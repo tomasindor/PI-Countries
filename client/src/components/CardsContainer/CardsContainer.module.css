@@ -1,5 +1,5 @@
 .container {
-  border: 1px solid black;
+  justify-content: center;
   display: flex;
   flex-direction: row;
   border-radius: 15 px;

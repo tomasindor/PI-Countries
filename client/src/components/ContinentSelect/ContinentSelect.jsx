@@ -1,3 +1,4 @@
+import style from "./ContinentSelect.module.css";
 const ContinentSelect = ({
   continents,
   selectedContinent,
@@ -8,12 +9,15 @@ const ContinentSelect = ({
   };
 
   return (
-    <div>
-      <label htmlFor="continent-select">Select a continent:</label>
+    <div className={style.container}>
+      <label htmlFor="continent-select" className={style.label}>
+        Select a continent:
+      </label>
       <select
         id="continent-select"
         value={selectedContinent}
         onChange={handleChange}
+        className={style.select}
       >
         {continents.map((continent) => (
           <option key={continent} value={continent}>
