@@ -1,25 +1,28 @@
-body {
-  background: #000000;
-  background: -webkit-linear-gradient(to right, #434343, #000000);
-  background: linear-gradient(to right, #434343, #000000);
-}
 .error {
   color: red;
 }
 
 .form {
   margin: 0 auto;
+  margin-top: 5rem;
   width: fit-content;
   border: 2px solid #ccc;
   box-shadow: 0 0 8px #ccc;
+  border-radius: 16px;
   padding: 20px;
-  color: white;
+  color: #635239;
+  background: linear-gradient(
+    225deg,
+    rgba(238, 174, 202, 0.835) 0%,
+
+    rgba(170, 201, 221, 0.839) 100%
+  );
 }
 
 .label {
-  font-weight: bold;
+  font-weight: bolder;
   font-size: 15px;
-  color: #ffffff;
+  color: #635239;
   margin-bottom: 5px;
   display: block;
 }

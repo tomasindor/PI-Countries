@@ -6,7 +6,7 @@
 .select {
   padding: 0.5rem;
   font-size: 1.2rem;
-  border: 1px solid #f200ff2c;
+  border: 2px solid rgba(233, 76, 239, 0.3);
   border-radius: 0.5rem;
 }
 
@@ -16,5 +16,39 @@
   align-items: start;
   justify-content: left;
   margin-bottom: 1rem;
-  color: white;
+  color: #635239;
+  font-weight: bolder;
+}
+.contentSelect {
+  max-width: 250px;
+  position: relative;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.contentSelect select {
+  background-color: #d087d0;
+  display: inline-block;
+  width: 100%;
+  cursor: pointer;
+  padding: 7px 10px;
+  height: 42px;
+  outline: 0;
+  border: 0;
+  border-radius: 0;
+  color: #635239;
+  font-size: 1em;
+
+  font-family: "Quicksand", sans-serif;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  position: relative;
+  transition: all 0.25s ease;
+}
+
+.contentSelect select:hover {
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+
+  background-color: #d961d9;
 }

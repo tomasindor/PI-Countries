@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styles from "./Pagination.module.css";
+
 const Pagination = ({ nPages, currentPage, setCurrentPage }) => {
   const pageNumbers = [...Array(nPages + 1).keys()].slice(1);
 
@@ -8,71 +9,38 @@ const Pagination = ({ nPages, currentPage, setCurrentPage }) => {
   const prevPage = () => {
     if (currentPage !== 1) setCurrentPage(currentPage - 1);
   };
-  const NavContainer = styled.nav`
-    display: flex;
-    justify-content: center;
-  `;
 
-  const NavList = styled.ul`
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  `;
-
-  const NavItem = styled.li`
-    margin: 0 0.5rem;
-    padding: 0.2rem 0 rem;
-    background: #f200ff2c;
-    &.active a {
-      background-color: #ef0bef;
-      color: #fff;
-    }
-
-    &:hover a {
-      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
-      transform: translateY(-5px);
-      background-color: #ef0bef;
-    }
-  `;
-
-  const NavLink = styled.a`
-    color: white;
-    text-decoration: none;
-    font-size: 1.2rem;
-    padding: 0.5rem;
-    border-radius: 0.25rem;
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-
-    &:hover {
-      background-color: #f1f1f1;
-    }
-  `;
   return (
-    <NavContainer>
-      <NavList className="pagination">
-        <NavItem className="page-item">
-          <NavLink className="page-link" onClick={prevPage}>
+    <nav className={styles.navContainer}>
+      <ul className={`pagination ${styles.navList}`}>
+        <li className={`page-item ${styles.navItem}`}>
+          <a className={`page-link ${styles.navLink}`} onClick={prevPage}>
             Previous
-          </NavLink>
-        </NavItem>
+          </a>
+        </li>
         {pageNumbers.map((pgNumber) => (
-          <NavItem
+          <li
             key={pgNumber}
-            className={`page-item ${currentPage == pgNumber ? "active" : ""} `}
+            className={`page-item ${styles.navItem} ${
+              currentPage == pgNumber ? styles.active : ""
+            }`}
           >
-            <NavLink onClick={() => setCurrentPage(pgNumber)} href="#">
+            <a
+              onClick={() => setCurrentPage(pgNumber)}
+              href="#"
+              className={`page-link ${styles.navLink}`}
+            >
               {pgNumber}
-            </NavLink>
-          </NavItem>
+            </a>
+          </li>
         ))}
-        <NavItem className="page-item">
-          <NavLink className="page-link" onClick={nextPage}>
+        <li className={`page-item ${styles.navItem}`}>
+          <a className={`page-link ${styles.navLink}`} onClick={nextPage}>
             Next
-          </NavLink>
-        </NavItem>
-      </NavList>
-    </NavContainer>
+          </a>
+        </li>
+      </ul>
+    </nav>
   );
 };
 

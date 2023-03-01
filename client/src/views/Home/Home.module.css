@@ -1,11 +1,20 @@
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 .filters {
   display: flex;
   justify-content: space-around;
-  align-content: flex-end;
 }
 .searchBar {
+  align-self: center;
+}
+.searchBarContainer {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-content: center;
 }

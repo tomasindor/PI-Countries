@@ -27,7 +27,7 @@ body {
   text-align: left;
   font-size: 4rem;
   font-weight: bold;
-  color: #ffff00;
+  color: rgba(175, 172, 223, 1);
   justify-content: center;
   margin-bottom: 5rem;
 }

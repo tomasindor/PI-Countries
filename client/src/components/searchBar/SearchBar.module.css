@@ -23,7 +23,7 @@
   width: 40px;
   height: 36px;
   border: 1px solid #f200ff2c;
-  background: #f200ff2c;
+  background: #d087d0;
   text-align: center;
   color: #fff;
   border-radius: 0 5px 5px 0;
@@ -33,7 +33,7 @@
 .searchButton:hover {
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
 
-  background-color: #ef0bef;
+  background-color: #d961d9;
 }
 
 .wrap {

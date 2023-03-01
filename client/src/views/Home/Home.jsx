@@ -25,6 +25,8 @@ const Home = () => {
   const dispatch = useDispatch();
   const countries = useSelector((state) => state.countries);
   const activities = useSelector((state) => state.activities);
+  console.log(activities);
+
   useEffect(() => {
     dispatch(getCountries());
     dispatch(getActivities());
@@ -54,7 +56,7 @@ const Home = () => {
   }, [selectedContinent, selectedSort, countries]);
 
   return (
-    <div className={style.container}>
+    <div>
       <div className={style.filters}>
         <ContinentSelect
           continents={[
@@ -80,7 +82,10 @@ const Home = () => {
           setSelectedActivity={setSelectedActivity}
         />
       </div>
-      <SearchBar className={style.searchBar}></SearchBar>
+      <div className={style.searchBarContainer}>
+        <SearchBar className={style.searchBar}></SearchBar>
+      </div>
+
       <CardsContainer countries={currentRecords} />
 
       <Pagination

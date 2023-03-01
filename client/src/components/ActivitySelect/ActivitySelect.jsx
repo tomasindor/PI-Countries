@@ -13,18 +13,20 @@ const ActivitySelect = ({
       <label htmlFor="Activity-select" className={style.label}>
         Select a Activity:
       </label>
-      <select
-        id="Activity-select"
-        value={selectedActivity}
-        onChange={handleChange}
-        className={style.select}
-      >
-        {Activity.map((Activity) => (
-          <option key={Activity} value={Activity}>
-            {Activity}
-          </option>
-        ))}
-      </select>
+      <div className={style.contentSelect}>
+        <select
+          id="Activity-select"
+          value={selectedActivity}
+          onChange={handleChange}
+          className={style.select}
+        >
+          {Activity.map((Activity) => (
+            <option key={Activity} value={Activity}>
+              {Activity}
+            </option>
+          ))}
+        </select>
+      </div>
     </div>
   );
 };

@@ -1,7 +1,14 @@
 .card {
-  background: #f200ff2c;
+  background: linear-gradient(
+    225deg,
+    rgba(238, 174, 202, 0.835) 0%,
+
+    rgba(170, 201, 221, 0.839) 100%
+  );
+  font-weight: bolder;
+
   backdrop-filter: blur(5px);
-  color: white;
+  color: #635239;
   border-radius: 5px;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -23,7 +30,12 @@
 .card:hover {
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
   transform: translateY(-5px);
-  background-color: #ef0bef;
+  background: linear-gradient(
+    225deg,
+    rgb(233, 139, 178) 0%,
+
+    rgb(151, 192, 220) 100%
+  );
 }
 .img {
   height: 150px;
@@ -36,4 +48,5 @@
 .attributes {
   margin: 0;
   letter-spacing: 0.5px;
+  text-decoration: none;
 }

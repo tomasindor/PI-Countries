@@ -13,18 +13,20 @@ const ContinentSelect = ({
       <label htmlFor="continent-select" className={style.label}>
         Select a continent:
       </label>
-      <select
-        id="continent-select"
-        value={selectedContinent}
-        onChange={handleChange}
-        className={style.select}
-      >
-        {continents.map((continent) => (
-          <option key={continent} value={continent}>
-            {continent}
-          </option>
-        ))}
-      </select>
+      <div className={style.contentSelect}>
+        <select
+          id="continent-select"
+          value={selectedContinent}
+          onChange={handleChange}
+          className={style.select}
+        >
+          {continents.map((continent) => (
+            <option key={continent} value={continent}>
+              {continent}
+            </option>
+          ))}
+        </select>
+      </div>
     </div>
   );
 };

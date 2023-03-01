@@ -9,18 +9,20 @@ const SortSelect = ({ Sort, selectedSort, setSelectedSort }) => {
       <label htmlFor="Sort-select" className={style.label}>
         Sort by:
       </label>
-      <select
-        id="Sort-select"
-        value={selectedSort}
-        onChange={handleChange}
-        className={style.select}
-      >
-        {Sort.map((Sort) => (
-          <option key={Sort} value={Sort}>
-            {Sort}
-          </option>
-        ))}
-      </select>
+      <div className={style.contentSelect}>
+        <select
+          id="Sort-select"
+          value={selectedSort}
+          onChange={handleChange}
+          className={style.select}
+        >
+          {Sort.map((Sort) => (
+            <option key={Sort} value={Sort}>
+              {Sort}
+            </option>
+          ))}
+        </select>
+      </div>
     </div>
   );
 };

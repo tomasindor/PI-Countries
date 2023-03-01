@@ -28,7 +28,7 @@ const Detail = () => {
         <div className={style.countryInfo}>
           {country && (
             <>
-              <img src={country.flag} alt=" "></img>
+              <img src={country.flag} alt=" " className={style.flag}></img>
               <p>{country.id ? country.id : ""}</p>
               <p>Name: {country.name}</p>
               <p>Continent: {country.continent}</p>

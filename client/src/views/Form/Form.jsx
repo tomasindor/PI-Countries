@@ -36,7 +36,7 @@ const Form = () => {
       [e.target.name]: e.target.value,
     });
   };
-
+  console.log(form);
   const changeHandlerArray = (e) => {
     setErrors(
       validate({
