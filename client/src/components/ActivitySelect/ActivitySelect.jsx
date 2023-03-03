@@ -20,9 +20,9 @@ const ActivitySelect = ({
           onChange={handleChange}
           className={style.select}
         >
-          {Activity.map((Activity) => (
-            <option key={Activity} value={Activity}>
-              {Activity}
+          {[...new Set(Activity)].map((activity) => (
+            <option key={activity} value={activity}>
+              {activity}
             </option>
           ))}
         </select>

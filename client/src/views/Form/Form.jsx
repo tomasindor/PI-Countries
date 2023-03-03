@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCountries } from "../../redux/actions";
+import { getCountries, postActivity } from "../../redux/actions";
 import style from "./Form.module.css";
 
 import axios from "axios";
@@ -19,14 +19,14 @@ const Form = () => {
     difficulty: "",
     duration: "",
     season: "",
-    countriesId: [],
+    countries: [],
   });
   const [errors, setErrors] = useState({
     name: "*",
     difficulty: "Difficulty required",
     duration: "",
     season: "Season required",
-    countriesId: "Choose minimum one country",
+    countries: "Choose minimum one country",
   });
 
   const changeHandler = (e) => {
@@ -36,7 +36,7 @@ const Form = () => {
       [e.target.name]: e.target.value,
     });
   };
-  console.log(form);
+
   const changeHandlerArray = (e) => {
     setErrors(
       validate({
@@ -50,12 +50,10 @@ const Form = () => {
     });
   };
 
+  //dispatch(postActivity(form));
   const submitHandler = async (e) => {
     e.preventDefault();
-    await axios
-      .post("http://localhost:3001/activities", form)
-      .then((res) => alert("Activity created"))
-      .catch((err) => alert(err));
+    dispatch(postActivity(form));
   };
 
   function validate(form) {
@@ -71,8 +69,8 @@ const Form = () => {
     if (form.season) errors.season = "";
     else errors.season = "Season required";
 
-    if (form.countriesId.length) errors.countriesId = "";
-    else errors.countriesId = "Choose minimum one country";
+    if (form.countries.length) errors.countries = "";
+    else errors.countries = "Choose minimum one country";
 
     return errors;
   }
@@ -233,7 +231,7 @@ const Form = () => {
           <p className={style.label}>Choose a country/es</p>
           <select
             className={style.select}
-            name="countriesId"
+            name="countries"
             onChange={changeHandlerArray}
           >
             <option value="">---</option>
@@ -246,8 +244,8 @@ const Form = () => {
             })}
           </select>
         </div>
-        {errors.countriesId && (
-          <span className={style.error}>{errors.countriesId}</span>
+        {errors.countries && (
+          <span className={style.error}>{errors.countries}</span>
         )}
         <br></br>
         <br></br>
@@ -258,7 +256,7 @@ const Form = () => {
             errors.name ||
             errors.difficulty ||
             errors.season ||
-            errors.countriesId
+            errors.countries
               ? true
               : false
           }

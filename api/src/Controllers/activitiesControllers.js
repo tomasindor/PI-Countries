@@ -2,7 +2,14 @@ const { Activity, Country } = require("../db");
 const { searchName } = require("./countriesController");
 
 const getActivities = async () => {
-  const db = await Activity.findAll();
+  const db = await Activity.findAll({
+    include: {
+      model: Country,
+      through: {
+        attributes: [],
+      },
+    },
+  });
   return db;
 };
 

@@ -12,20 +12,20 @@ import style from "./Home.module.css";
 import ActivitySelect from "../../components/ActivitySelect/ActivitySelect";
 
 const Home = () => {
-  const [data, setData] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [recordsPerPage] = useState(10);
   const [selectedContinent, setSelectedContinent] = useState("All");
   const [selectedSort, setSelectedSort] = useState("A-Z");
-  const [selectedActivity, setSelectedActivity] = useState("");
-  const indexOfLastRecord = currentPage * recordsPerPage;
-  const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
-  const currentRecords = data.slice(indexOfFirstRecord, indexOfLastRecord);
-  const nPages = Math.ceil(data.length / recordsPerPage);
+  const [selectedActivity, setSelectedActivity] = useState("All");
+  const [countriesPerPage] = useState(10);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [data, setData] = useState([]);
+  const indexOfLastCountry = currentPage * countriesPerPage;
+  const indexOfFirstCountry = indexOfLastCountry - countriesPerPage;
+  const currentCountries = data.slice(indexOfFirstCountry, indexOfLastCountry);
+  const nPages = Math.ceil(data.length / countriesPerPage);
   const dispatch = useDispatch();
   const countries = useSelector((state) => state.countries);
   const activities = useSelector((state) => state.activities);
-  console.log(activities);
+  const postedActivities = useSelector((state) => state.postedActivities);
 
   useEffect(() => {
     dispatch(getCountries());
@@ -35,15 +35,17 @@ const Home = () => {
     if (selectedActivity) {
       setData(
         countries.filter((country) => {
-          if (typeof country.activities !== "undefined") {
-            country.activities.filter(
+          if (country.activities) {
+            return country.activities.some(
               (activity) => activity.name === selectedActivity
             );
           }
+          return false;
         })
       );
     }
-  }, [selectedActivity]);
+  }, [selectedActivity, countries]);
+
   useEffect(() => {
     if (selectedContinent === "All") {
       setData(sortArray(countries, selectedSort));
@@ -77,7 +79,7 @@ const Home = () => {
           setSelectedSort={setSelectedSort}
         />
         <ActivitySelect
-          Activity={activities}
+          Activity={postedActivities}
           selectedActivity={selectedActivity}
           setSelectedActivity={setSelectedActivity}
         />
@@ -86,7 +88,7 @@ const Home = () => {
         <SearchBar className={style.searchBar}></SearchBar>
       </div>
 
-      <CardsContainer countries={currentRecords} />
+      <CardsContainer countries={currentCountries} />
 
       <Pagination
         nPages={nPages}

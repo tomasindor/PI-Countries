@@ -10,10 +10,11 @@ body {
 .container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   justify-content: center;
-
+  text-align: center;
   height: 100vh;
+  padding-right: 1000px;
   font-family: "Mont-Heavy";
   background-image: url("./photo-1521295121783-8a321d551ad2.jfif");
   background-size: cover;
@@ -24,19 +25,19 @@ body {
 
 /* Estilos del título */
 .title {
-  text-align: left;
   font-size: 4rem;
   font-weight: bold;
   color: rgba(175, 172, 223, 1);
   justify-content: center;
   margin-bottom: 5rem;
+  align-items: left;
 }
 
 /* Estilos del subtítulo */
 .subtitle {
   font-size: 1.5rem;
-  color: #ffff00;
-  text-align: left;
+  color: rgba(175, 172, 223, 1);
+
   margin-bottom: 5rem;
 }
 
@@ -45,7 +46,7 @@ body {
   display: inline-block;
   font-size: 1.2rem;
   font-weight: bold;
-  color: #fff000;
+  color: rgba(175, 172, 223, 1);
   padding: 1rem 2rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -58,5 +59,5 @@ body {
 }
 
 .button:hover {
-  background-color: #7d6c0dc5;
+  background-color: #58290b6e;
 }

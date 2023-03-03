@@ -10,6 +10,7 @@ const initialState = {
   countries: [],
   country: [],
   activities: [],
+  postedActivities: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -23,7 +24,7 @@ const rootReducer = (state = initialState, action) => {
     case POST_COUNTRY:
       return { ...state, activities: action.payload };
     case GET_ACTIVITIES:
-      return { ...state, activities: action.payload };
+      return { ...state, postedActivities: action.payload };
     default:
       return { ...state };
   }

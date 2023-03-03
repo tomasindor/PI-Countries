@@ -34,10 +34,12 @@ export const searchCountries = (name) => {
 
 export const postActivity = (activity) => {
   return async function (dispatch) {
-    const activity = (await axios.post("http://localhost:3001/activities"))
-      .data;
-
-    dispatch({ type: POST_COUNTRY, payload: activity });
+    const activities = await axios
+      .post("http://localhost:3001/activities", activity)
+      .then((res) => alert("Activity created"))
+      .catch((err) => alert(err));
+    console.log(activity);
+    dispatch({ type: POST_COUNTRY, payload: activities });
   };
 };
 
@@ -45,7 +47,7 @@ export const getActivities = () => {
   return async function (dispatch) {
     const { data } = await axios.get("http://localhost:3001/activities");
     const activities = data.map((activity) => activity.name);
-
+    console.log(activities);
     dispatch({ type: GET_ACTIVITIES, payload: activities });
   };
 };
